@@ -45,7 +45,7 @@ Write "Updating Hosts"
 if ((cat $hostsFile | Select-String $targetIp) -ne "")
 {
     Write " | Hosts entry exists, updating..."
-    $existingRow = "(cat $hostsFile | Select-String $targetIp)".Trim();
+    $existingRow = "$(cat $hostsFile | Select-String $targetIp)".Trim();
     $rowInfo = (("$existingRow" -split "#")[0]).Trim();
     $segments = $rowInfo -split " ";
 
