@@ -42,10 +42,11 @@ $targetIp = "192.168.30.178";
 $hosts = 'docker.sit', 'nginx.sit', 'nuget.sit', 'portainer.sit';
 
 Write "Updating Hosts"
-if ((cat $hostsFile | Select-String $targetIp) -ne "")
+$row = (cat $hostsFile | Select-String $targetIp);
+if ($row -ne "")
 {
     Write " | Hosts entry exists, updating..."
-    $existingRow = "$(cat $hostsFile | Select-String $targetIp)".Trim();
+    $existingRow = "$row".Trim();
     $rowInfo = (("$existingRow" -split "#")[0]).Trim();
     $segments = $rowInfo -split " ";
 
