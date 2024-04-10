@@ -72,7 +72,12 @@ if (($row -ne $null) -and ($row -ne ""))
 else {
     $newRow = "$targetIp $hosts # SIT Internal";
 
-    $fileContent.Append($newRow) | Set-Content $hostsFile;
+    if ($fileContent -eq $null) {
+        $newRow | Set-Content $hostsFile;
+    }
+    else {
+        $fileContent.Append($newRow) | Set-Content $hostsFile;
+    }
 }
 
 Write-Host -NoNewLine "Press any key to continue...";
