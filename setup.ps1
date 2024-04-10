@@ -42,7 +42,8 @@ $targetIp = "192.168.30.178";
 $hosts = 'docker.sit', 'nginx.sit', 'nuget.sit', 'portainer.sit';
 
 Write "Updating Hosts"
-$row = (cat $hostsFile | Select-String $targetIp);
+$fileContent = Get-Content $hostsFile;
+$row = ($fileContent | Select-String $targetIp);
 if ($row -ne "")
 {
     Write " | Hosts entry exists, updating..."
@@ -71,7 +72,7 @@ if ($row -ne "")
 else {
     $newRow = "$targetIp $hosts # SIT Internal";
 
-    (Get-Content $hostsFile).Append($newRow) | Set-Content $hostsFile;
+    $fileContent.Append($newRow) | Set-Content $hostsFile;
 }
 
 Write-Host -NoNewLine "Press any key to continue...";
