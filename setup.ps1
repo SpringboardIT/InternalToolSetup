@@ -76,7 +76,7 @@ else {
         $newRow | Set-Content $hostsFile;
     }
     else {
-        $fileContent.Append($newRow) | Set-Content $hostsFile;
+        "$fileContent $newRow" | Set-Content $hostsFile;
     }
     Write " | Added row to hosts file.";
 }
