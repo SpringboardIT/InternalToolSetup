@@ -44,7 +44,7 @@ $hosts = 'docker.sit', 'nginx.sit', 'nuget.sit', 'portainer.sit';
 Write "Updating Hosts"
 $fileContent = Get-Content $hostsFile;
 $row = ($fileContent | Select-String $targetIp);
-if ($row -ne $null & $row -ne "")
+if (($row -ne $null) -and ($row -ne ""))
 {
     Write " | Hosts entry exists, updating..."
     $existingRow = "$row".Trim();
