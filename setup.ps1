@@ -78,6 +78,7 @@ else {
     else {
         $fileContent.Append($newRow) | Set-Content $hostsFile;
     }
+    Write " | Added row to hosts file.";
 }
 
 Write-Host -NoNewLine "Press any key to continue...";
