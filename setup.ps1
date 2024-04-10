@@ -62,7 +62,7 @@ if ($row -ne "")
     $newRow = "$targetIp $existingHosts # SIT Internal";
 
     if ($existingRow -ne $newRow) {
-        (Get-Content $hostsFile).Replace($existingRow, $newRow) | Set-Content $hostsFile;
+        $fileContent.Replace($existingRow, $newRow) | Set-Content $hostsFile;
         Write " | Updated hosts file.";
     }
     else {
