@@ -2,7 +2,7 @@
 Quick setup for accessing internal tools easier
 
 ## Installation
-To set up the tools, copy and paste the following into an admin powershell script.
+To set up the tools, copy and paste the following into an admin powershell prompt.
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex "&{$((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SpringboardIT/InternalToolSetup/main/setup.ps1'))} global"
 ```
@@ -48,4 +48,4 @@ SIT Nginx is a web server that acts as a reverse proxy, allowing the use of `*.s
 
 ## Note
 The first time you visit these sites, ensure the trailing `/` is included in the URL.
-This is because the sites are using a non-standard TLD, and the trailing `/` is required to resolve the URL correctly.
+This is because the sites are using a non-standard Top Level Domain (TLD, for example `.com`, `.uk`), and the trailing `/` is required to resolve the URL correctly.
